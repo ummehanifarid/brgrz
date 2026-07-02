@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Best Sellers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="bestseller.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Page Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Best Sellers</h2>
+    <p class="menu-sub">Our most-loved picks — tried, tested, and ordered again and again.</p>
+  </section>
+
+  <!-- ===== Best Seller Grid ===== -->
+  <main class="item-grid-wrap">
+    <div class="item-grid">
+
+      <!-- 1. Cheesy Baked Pasta (variant) -->
+      <article class="item-card" data-item="1">
+        <div class="card-number">01</div>
+        <div class="item-image-frame">
+          <img src="" alt="Cheesy Baked Pasta" class="item-img" data-img-for="1">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Cheesy Baked Pasta</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Half" data-price="550">
+              <span class="variant-label">Half</span><span class="variant-price">Rs 550</span>
+            </button>
+            <button class="variant-btn" data-variant="Full" data-price="980">
+              <span class="variant-label">Full</span><span class="variant-price">Rs 980</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 2. Cheesy Labnani Pizza (variant - no Family option) -->
+      <article class="item-card" data-item="2">
+        <div class="card-number">02</div>
+        <div class="item-image-frame">
+          <img src="" alt="Cheesy Labnani Pizza" class="item-img" data-img-for="2">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Cheesy Labnani Pizza</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Small" data-price="749">
+              <span class="variant-label">Small</span><span class="variant-price">Rs 749</span>
+            </button>
+            <button class="variant-btn" data-variant="Medium" data-price="1099">
+              <span class="variant-label">Medium</span><span class="variant-price">Rs 1099</span>
+            </button>
+            <button class="variant-btn" data-variant="Large" data-price="1849">
+              <span class="variant-label">Large</span><span class="variant-price">Rs 1849</span>
+            </button>
+            <button class="variant-btn variant-na" data-variant="Family" data-price="" disabled>
+              <span class="variant-label">Family</span><span class="variant-price">—</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 3. Premium Pizza (variant) -->
+      <article class="item-card" data-item="3">
+        <div class="card-number">03</div>
+        <div class="item-image-frame">
+          <img src="" alt="Premium Pizza" class="item-img" data-img-for="3">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Premium Pizza</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Small" data-price="649">
+              <span class="variant-label">Small</span><span class="variant-price">Rs 649</span>
+            </button>
+            <button class="variant-btn" data-variant="Medium" data-price="949">
+              <span class="variant-label">Medium</span><span class="variant-price">Rs 949</span>
+            </button>
+            <button class="variant-btn" data-variant="Large" data-price="1449">
+              <span class="variant-label">Large</span><span class="variant-price">Rs 1449</span>
+            </button>
+            <button class="variant-btn" data-variant="Family" data-price="1899">
+              <span class="variant-label">Family</span><span class="variant-price">Rs 1899</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 4. Khalifa Tower Burger (single price) -->
+      <article class="item-card" data-item="4">
+        <div class="card-number">04</div>
+        <div class="item-image-frame">
+          <img src="" alt="Khalifa Tower Burger" class="item-img" data-img-for="4">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Khalifa Tower Burger</h4>
+          <p class="item-price">Rs 549</p>
+          <button class="add-cart-btn single" data-price="549">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 5. Happy Deal (single price, with description) -->
+      <article class="item-card" data-item="5">
+        <div class="card-number">05</div>
+        <div class="item-image-frame">
+          <img src="" alt="Happy Deal" class="item-img" data-img-for="5">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Happy Deal</h4>
+          <p class="item-desc">1 Small Hot & Spicy Pizza &amp; 1 Reg Drink</p>
+          <p class="item-price">Rs 549</p>
+          <button class="add-cart-btn single" data-price="549">Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 6. Hot & Spicy Pizza (variant) -->
+      <article class="item-card" data-item="6">
+        <div class="card-number">06</div>
+        <div class="item-image-frame">
+          <img src="" alt="Hot Spicy Pizza" class="item-img" data-img-for="6">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Hot &amp; Spicy Pizza</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Small" data-price="549">
+              <span class="variant-label">Small</span><span class="variant-price">Rs 549</span>
+            </button>
+            <button class="variant-btn" data-variant="Medium" data-price="849">
+              <span class="variant-label">Medium</span><span class="variant-price">Rs 849</span>
+            </button>
+            <button class="variant-btn" data-variant="Large" data-price="1199">
+              <span class="variant-label">Large</span><span class="variant-price">Rs 1199</span>
+            </button>
+            <button class="variant-btn" data-variant="Family" data-price="1749">
+              <span class="variant-label">Family</span><span class="variant-price">Rs 1749</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <!-- 7. Kabab Crust Pizza (variant) -->
+      <article class="item-card" data-item="7">
+        <div class="card-number">07</div>
+        <div class="item-image-frame">
+          <img src="" alt="Kabab Crust Pizza" class="item-img" data-img-for="7">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Kabab Crust Pizza</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Small" data-price="699">
+              <span class="variant-label">Small</span><span class="variant-price">Rs 699</span>
+            </button>
+            <button class="variant-btn" data-variant="Medium" data-price="999">
+              <span class="variant-label">Medium</span><span class="variant-price">Rs 999</span>
+            </button>
+            <button class="variant-btn" data-variant="Large" data-price="1499">
+              <span class="variant-label">Large</span><span class="variant-price">Rs 1499</span>
+            </button>
+            <button class="variant-btn" data-variant="Family" data-price="1999">
+              <span class="variant-label">Family</span><span class="variant-price">Rs 1999</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="bestseller.js"></script>
+</body>
+</html>

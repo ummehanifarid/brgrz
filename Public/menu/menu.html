@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Full Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Menu Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Full Menu</h2>
+    <p class="menu-sub">Pasta, fries, wraps, shawarma, wings &amp; more — everything in one place.</p>
+  </section>
+
+  <!-- ===== White Sauce Pasta ===== -->
+  <section class="category-block">
+    <h3 class="category-title">White Sauce Pasta</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="1">
+        <div class="card-number">01</div>
+        <div class="item-image-frame">
+          <img src="" alt="White Sauce Pasta" class="item-img" data-img-for="1">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">White Sauce Pasta</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Half" data-price="449">
+              <span class="variant-label">Half</span><span class="variant-price">Rs 449</span>
+            </button>
+            <button class="variant-btn" data-variant="Full" data-price="799">
+              <span class="variant-label">Full</span><span class="variant-price">Rs 799</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="35">
+        <div class="card-number">02</div>
+        <div class="item-image-frame">
+          <img src="" alt="Cheesy Baked Pasta" class="item-img" data-img-for="35">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Cheesy Baked Pasta</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Half" data-price="550">
+              <span class="variant-label">Half</span><span class="variant-price">Rs 550</span>
+            </button>
+            <button class="variant-btn" data-variant="Full" data-price="980">
+              <span class="variant-label">Full</span><span class="variant-price">Rs 980</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Fries Corner ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Fries Corner</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="2">
+        <div class="card-number">03</div>
+        <div class="item-image-frame">
+          <img src="" alt="Regular Salty Fries" class="item-img" data-img-for="2">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Regular Salty Fries</h4>
+          <p class="item-price">Rs 199</p>
+          <button class="add-cart-btn single" data-price="199">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="3">
+        <div class="card-number">04</div>
+        <div class="item-image-frame">
+          <img src="" alt="Large Salty Fries" class="item-img" data-img-for="3">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Large Salty Fries</h4>
+          <p class="item-price">Rs 299</p>
+          <button class="add-cart-btn single" data-price="299">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="4">
+        <div class="card-number">05</div>
+        <div class="item-image-frame">
+          <img src="" alt="Regular Masala Fries" class="item-img" data-img-for="4">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Regular Masala Fries</h4>
+          <p class="item-price">Rs 199</p>
+          <button class="add-cart-btn single" data-price="199">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="5">
+        <div class="card-number">06</div>
+        <div class="item-image-frame">
+          <img src="" alt="Large Masala Fries" class="item-img" data-img-for="5">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Large Masala Fries</h4>
+          <p class="item-price">Rs 299</p>
+          <button class="add-cart-btn single" data-price="299">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="6">
+        <div class="card-number">07</div>
+        <div class="item-image-frame">
+          <img src="" alt="Garlic Mayo Fries" class="item-img" data-img-for="6">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Garlic Mayo Fries</h4>
+          <p class="item-price">Rs 249</p>
+          <button class="add-cart-btn single" data-price="249">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="7">
+        <div class="card-number">08</div>
+        <div class="item-image-frame">
+          <img src="" alt="Regular BBQ Masala Fries" class="item-img" data-img-for="7">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Regular BBQ Masala Fries</h4>
+          <p class="item-price">Rs 249</p>
+          <button class="add-cart-btn single" data-price="249">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="8">
+        <div class="card-number">09</div>
+        <div class="item-image-frame">
+          <img src="" alt="Chicago Fries" class="item-img" data-img-for="8">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Chicago Fries</h4>
+          <p class="item-price">Rs 549</p>
+          <button class="add-cart-btn single" data-price="549">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Chicken Strips ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Chicken Strips</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="9">
+        <div class="card-number">10</div>
+        <div class="item-image-frame">
+          <img src="" alt="Chicken Strips" class="item-img" data-img-for="9">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Chicken Strips</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="599">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="10">
+        <div class="card-number">11</div>
+        <div class="item-image-frame">
+          <img src="" alt="Strips Chips and Dips" class="item-img" data-img-for="10">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Strips Chips &amp; Dips</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="599">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="999">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 999</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Rock & Roll Wraps ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Rock &amp; Roll Wraps</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="11">
+        <div class="card-number">12</div>
+        <div class="item-image-frame">
+          <img src="" alt="Bamboo Roll" class="item-img" data-img-for="11">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Bamboo Roll</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="12">
+        <div class="card-number">13</div>
+        <div class="item-image-frame">
+          <img src="" alt="Afghani Burger Wrap" class="item-img" data-img-for="12">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Afghani Burger Wrap</h4>
+          <p class="item-price">Rs 349</p>
+          <button class="add-cart-btn single" data-price="349">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="13">
+        <div class="card-number">14</div>
+        <div class="item-image-frame">
+          <img src="" alt="Masala Wrap" class="item-img" data-img-for="13">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Masala Wrap</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="14">
+        <div class="card-number">15</div>
+        <div class="item-image-frame">
+          <img src="" alt="BBQ Wrap" class="item-img" data-img-for="14">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">BBQ Wrap</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Paratha Roll & Shawarma Hub ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Paratha Roll &amp; Shawarma Hub</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="15">
+        <div class="card-number">16</div>
+        <div class="item-image-frame">
+          <img src="" alt="Paratha Roll With Mint Sauce" class="item-img" data-img-for="15">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Paratha Roll With Mint Sauce</h4>
+          <p class="item-price">Rs 349</p>
+          <button class="add-cart-btn single" data-price="349">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="16">
+        <div class="card-number">17</div>
+        <div class="item-image-frame">
+          <img src="" alt="Chicken Cheese Paratha Roll" class="item-img" data-img-for="16">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Chicken Cheese Paratha Roll</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="17">
+        <div class="card-number">18</div>
+        <div class="item-image-frame">
+          <img src="" alt="Zinger Paratha Roll" class="item-img" data-img-for="17">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Zinger Paratha Roll</h4>
+          <p class="item-price">Rs 349</p>
+          <button class="add-cart-btn single" data-price="349">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="18">
+        <div class="card-number">19</div>
+        <div class="item-image-frame">
+          <img src="" alt="Zinger Cheese Paratha Roll" class="item-img" data-img-for="18">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Zinger Cheese Paratha Roll</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="19">
+        <div class="card-number">20</div>
+        <div class="item-image-frame">
+          <img src="" alt="Classic Chicken Shawarma" class="item-img" data-img-for="19">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Classic Chicken Shawarma</h4>
+          <p class="item-price">Rs 249</p>
+          <button class="add-cart-btn single" data-price="249">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="20">
+        <div class="card-number">21</div>
+        <div class="item-image-frame">
+          <img src="" alt="Chicken Cheese Shawarma" class="item-img" data-img-for="20">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Chicken Cheese Shawarma</h4>
+          <p class="item-price">Rs 280</p>
+          <button class="add-cart-btn single" data-price="280">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="21">
+        <div class="card-number">22</div>
+        <div class="item-image-frame">
+          <img src="" alt="Zinger Shawarma" class="item-img" data-img-for="21">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Zinger Shawarma</h4>
+          <p class="item-price">Rs 349</p>
+          <button class="add-cart-btn single" data-price="349">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="22">
+        <div class="card-number">23</div>
+        <div class="item-image-frame">
+          <img src="" alt="Zinger Cheese Shawarma" class="item-img" data-img-for="22">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Zinger Cheese Shawarma</h4>
+          <p class="item-price">Rs 399</p>
+          <button class="add-cart-btn single" data-price="399">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Cheesy Pizza Fries ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Cheesy Pizza Fries</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="23">
+        <div class="card-number">24</div>
+        <div class="item-image-frame">
+          <img src="" alt="Loaded Fries" class="item-img" data-img-for="23">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Loaded Fries</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Half" data-price="449">
+              <span class="variant-label">Half</span><span class="variant-price">Rs 449</span>
+            </button>
+            <button class="variant-btn" data-variant="Full" data-price="599">
+              <span class="variant-label">Full</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="24">
+        <div class="card-number">25</div>
+        <div class="item-image-frame">
+          <img src="" alt="Pizza Fries" class="item-img" data-img-for="24">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Pizza Fries</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="Half" data-price="499">
+              <span class="variant-label">Half</span><span class="variant-price">Rs 499</span>
+            </button>
+            <button class="variant-btn" data-variant="Full" data-price="649">
+              <span class="variant-label">Full</span><span class="variant-price">Rs 649</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Crispy Chicken Piece ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Crispy Chicken Piece</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="25">
+        <div class="card-number">26</div>
+        <div class="item-image-frame">
+          <img src="" alt="1 Chicken Piece" class="item-img" data-img-for="25">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">1 Chicken Piece</h4>
+          <p class="item-price">Rs 249</p>
+          <button class="add-cart-btn single" data-price="249">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="26">
+        <div class="card-number">27</div>
+        <div class="item-image-frame">
+          <img src="" alt="2 Chicken Pieces" class="item-img" data-img-for="26">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">2 Chicken Pieces</h4>
+          <p class="item-price">Rs 499</p>
+          <button class="add-cart-btn single" data-price="499">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="27">
+        <div class="card-number">28</div>
+        <div class="item-image-frame">
+          <img src="" alt="5 Pieces Bucket" class="item-img" data-img-for="27">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">5 Pieces Bucket</h4>
+          <p class="item-price">Rs 1199</p>
+          <button class="add-cart-btn single" data-price="1199">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Crispy Hot Wings ===== -->
+  <section class="category-block">
+    <h3 class="category-title">Crispy Hot Wings</h3>
+    <div class="item-grid">
+
+      <article class="item-card" data-item="28">
+        <div class="card-number">29</div>
+        <div class="item-image-frame">
+          <img src="" alt="Crispy Hot Wings" class="item-img" data-img-for="28">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Crispy Hot Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="549">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 549</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="29">
+        <div class="card-number">30</div>
+        <div class="item-image-frame">
+          <img src="" alt="Garlic Mayo Wings" class="item-img" data-img-for="29">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Garlic Mayo Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="599">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="30">
+        <div class="card-number">31</div>
+        <div class="item-image-frame">
+          <img src="" alt="Tandoori Wings" class="item-img" data-img-for="30">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Tandoori Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="599">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="31">
+        <div class="card-number">32</div>
+        <div class="item-image-frame">
+          <img src="" alt="Special Peri Peri Wings" class="item-img" data-img-for="31">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Special Peri Peri Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="599">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="32">
+        <div class="card-number">33</div>
+        <div class="item-image-frame">
+          <img src="" alt="BBQ Wings with Dip Sauce" class="item-img" data-img-for="32">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">BBQ Wings with Dip Sauce</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="349">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 349</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="599">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 599</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="33">
+        <div class="card-number">34</div>
+        <div class="item-image-frame">
+          <img src="" alt="Honey Mustard Wings" class="item-img" data-img-for="33">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Honey Mustard Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="399">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 399</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="649">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 649</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="item-card" data-item="34">
+        <div class="card-number">35</div>
+        <div class="item-image-frame">
+          <img src="" alt="Honey Chili Wings" class="item-img" data-img-for="34">
+          <div class="img-placeholder">Add image</div>
+        </div>
+        <div class="card-body">
+          <h4 class="item-name">Honey Chili Wings</h4>
+          <div class="variant-grid">
+            <button class="variant-btn" data-variant="05 Pieces" data-price="399">
+              <span class="variant-label">05 Pcs</span><span class="variant-price">Rs 399</span>
+            </button>
+            <button class="variant-btn" data-variant="10 Pieces" data-price="649">
+              <span class="variant-label">10 Pcs</span><span class="variant-price">Rs 649</span>
+            </button>
+          </div>
+          <button class="add-cart-btn" disabled>Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="menu.js"></script>
+<script>
+  
+</script>
+</body>
+</html>

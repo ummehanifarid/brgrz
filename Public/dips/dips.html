@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Dips &amp; Sauces Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dips.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../Deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Menu Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Dips &amp; Sauces Menu</h2>
+    <p class="menu-sub">Creamy, tangy, spicy — the perfect side for every order.</p>
+  </section>
+
+  <!-- ===== Dips Grid ===== -->
+  <main class="burger-grid" id="dips-grid">
+
+    <!-- Card 1 -->
+    <article class="burger-card" data-dip="1">
+      <div class="card-number">01</div>
+      <div class="burger-image-frame">
+        <img src="" alt="Thousand Island Sauce" class="burger-img" data-img-for="1">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Thousand Island Sauce</h3>
+        <p class="burger-price">Rs 50</p>
+        <button class="add-cart-btn" data-price="50">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="burger-card" data-dip="2">
+      <div class="card-number">02</div>
+      <div class="burger-image-frame">
+        <img src="" alt="American BBQ Dip" class="burger-img" data-img-for="2">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">American BBQ Dip</h3>
+        <p class="burger-price">Rs 50</p>
+        <button class="add-cart-btn" data-price="50">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="burger-card" data-dip="3">
+      <div class="card-number">03</div>
+      <div class="burger-image-frame">
+        <img src="" alt="Mint Mayo Dip" class="burger-img" data-img-for="3">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Mint Mayo Dip</h3>
+        <p class="burger-price">Rs 50</p>
+        <button class="add-cart-btn" data-price="50">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="burger-card" data-dip="4">
+      <div class="card-number">04</div>
+      <div class="burger-image-frame">
+        <img src="" alt="Garlic Mayo Dip" class="burger-img" data-img-for="4">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Garlic Mayo Dip</h3>
+        <p class="burger-price">Rs 50</p>
+        <button class="add-cart-btn" data-price="50">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="burger-card" data-dip="5">
+      <div class="card-number">05</div>
+      <div class="burger-image-frame">
+        <img src="" alt="Super Spicy Dip" class="burger-img" data-img-for="5">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Super Spicy Dip</h3>
+        <p class="burger-price">Rs 50</p>
+        <button class="add-cart-btn" data-price="50">Add to Cart</button>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="dips.js"></script>
+</body>
+</html>

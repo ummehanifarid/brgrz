@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Deals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deals.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../Deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Page Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Deals &amp; Combos</h2>
+    <p class="menu-sub">Bigger bites, better value. Pick a category to see what's on offer.</p>
+  </section>
+
+  <!-- ===== Category Selector ===== -->
+  <section class="deal-tabs-wrap">
+    <div class="deal-tabs" id="dealTabs">
+      <button class="deal-tab active" data-target="burger-deals">
+        <span class="tab-emoji">🍔</span>
+        <span class="tab-text">Burger Meals</span>
+      </button>
+      <button class="deal-tab" data-target="pizza-deals">
+        <span class="tab-emoji">🍕</span>
+        <span class="tab-text">Pizza Deals</span>
+      </button>
+      <button class="deal-tab" data-target="afford-deals">
+        <span class="tab-emoji">💰</span>
+        <span class="tab-text">Affordable Packages</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- ===== BURGER MEALS ===== -->
+  <!-- ===================================================== -->
+  <main class="deal-panel active" id="burger-deals">
+
+    <section class="category-block">
+      <h3 class="category-title">Single Meals <span class="category-sub">(1 Person)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="1">
+          <div class="card-number">01</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Mac Chicken Meal" class="deal-img" data-img-for="1">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Mac Chicken Meal</h4>
+            <p class="deal-desc">1 Spicy Mac Chicken Burger, 1 Reg Fries &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 499</p>
+            <button class="add-cart-btn" data-price="499">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="2">
+          <div class="card-number">02</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Tikka Meal" class="deal-img" data-img-for="2">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Tikka Meal</h4>
+            <p class="deal-desc">1 Tikka Burger, 1 Reg Fries &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 399</p>
+            <button class="add-cart-btn" data-price="399">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="3">
+          <div class="card-number">03</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Classic Zinger Meal" class="deal-img" data-img-for="3">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Classic Zinger Meal</h4>
+            <p class="deal-desc">1 Zinger Burger, 1 Reg Fries &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 550</p>
+            <button class="add-cart-btn" data-price="550">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="4">
+          <div class="card-number">04</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Khalifa Tower Meal" class="deal-img" data-img-for="4">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Khalifa Tower Meal</h4>
+            <p class="deal-desc">1 Tower Burger, 1 Reg Fries &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 749</p>
+            <button class="add-cart-btn" data-price="749">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="5">
+          <div class="card-number">05</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Spicy Jalapeno Meal" class="deal-img" data-img-for="5">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Spicy Jalapeno Meal</h4>
+            <p class="deal-desc">1 Jalapeno Burger, 1 Reg Fries &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 599</p>
+            <button class="add-cart-btn" data-price="599">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="6">
+          <div class="card-number">06</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Rancher Meal" class="deal-img" data-img-for="6">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Rancher Meal</h4>
+            <p class="deal-desc">1 Rancher Burger, 1 Chicken Piece &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 599</p>
+            <button class="add-cart-btn" data-price="599">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="7">
+          <div class="card-number">07</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Saving Meal" class="deal-img" data-img-for="7">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Saving Meal</h4>
+            <p class="deal-desc">1 Crunch Burger, 3 Chicken Nuggets, 1 Reg Fries, Dip Sauce &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 599</p>
+            <button class="add-cart-btn" data-price="599">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="8">
+          <div class="card-number">08</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Foodie Meal" class="deal-img" data-img-for="8">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Foodie Meal</h4>
+            <p class="deal-desc">1 Zinger Burger, 4 Hot Wings &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 649</p>
+            <button class="add-cart-btn" data-price="649">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="9">
+          <div class="card-number">09</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Dabang V8 Meal" class="deal-img" data-img-for="9">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Dabang V8 Meal</h4>
+            <p class="deal-desc">1 Mighty V8 Burger &amp; 1 Sting</p>
+            <p class="deal-price">Rs 799</p>
+            <button class="add-cart-btn" data-price="799">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="category-block">
+      <h3 class="category-title">2 Person Meals <span class="category-sub">(2 Persons)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="10">
+          <div class="card-number">10</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Manana Bro Deal" class="deal-img" data-img-for="10">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Manana Bro Deal</h4>
+            <p class="deal-desc">2 Zinger Burgers, 1 Large Fries &amp; 2 Reg Drinks</p>
+            <p class="deal-price">Rs 999</p>
+            <button class="add-cart-btn" data-price="999">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="11">
+          <div class="card-number">11</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Special Couple Meal" class="deal-img" data-img-for="11">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Special Couple Meal</h4>
+            <p class="deal-desc">2 Zinger Burgers, 4 Hot Wings &amp; 2 Reg Drinks</p>
+            <p class="deal-price">Rs 1199</p>
+            <button class="add-cart-btn" data-price="1199">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="12">
+          <div class="card-number">12</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Crime Partner Deal" class="deal-img" data-img-for="12">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Crime Partner Deal</h4>
+            <p class="deal-desc">2 Spicy Mac &amp; Cheese Burgers, 2 Regular Fries &amp; 2 Reg Drinks</p>
+            <p class="deal-price">Rs 899</p>
+            <button class="add-cart-btn" data-price="899">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="13">
+          <div class="card-number">13</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Chill Out Deal" class="deal-img" data-img-for="13">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Chill Out Deal</h4>
+            <p class="deal-desc">1 Zinger Burger, 1 Classic Shawarma &amp; 4 Hot Wings</p>
+            <p class="deal-price">Rs 799</p>
+            <button class="add-cart-btn" data-price="799">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="14">
+          <div class="card-number">14</div>
+          <div class="deal-image-frame">
+            <img src="" alt="5G Deal" class="deal-img" data-img-for="14">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">5G Deal</h4>
+            <p class="deal-desc">1 Zinger Burger, 1 Shawarma &amp; 1 Sting 500ml</p>
+            <p class="deal-price">Rs 699</p>
+            <button class="add-cart-btn" data-price="699">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="category-block">
+      <h3 class="category-title">Friends &amp; Family Deals <span class="category-sub">(3+ Persons)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="15">
+          <div class="card-number">15</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Crunch Munch Deal" class="deal-img" data-img-for="15">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Crunch Munch Deal</h4>
+            <p class="deal-desc">5 Crunch Burgers &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 1449</p>
+            <button class="add-cart-btn" data-price="1449">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="16">
+          <div class="card-number">16</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Zinger Party Deal" class="deal-img" data-img-for="16">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Zinger Party Deal</h4>
+            <p class="deal-desc">5 Zinger Burgers &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 1949</p>
+            <button class="add-cart-btn" data-price="1949">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="17">
+          <div class="card-number">17</div>
+          <div class="deal-image-frame">
+            <img src="" alt="3 Person Deal" class="deal-img" data-img-for="17">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">3 Person Deal</h4>
+            <p class="deal-desc">3 Zinger Burgers, 10 Hot Wings &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1649</p>
+            <button class="add-cart-btn" data-price="1649">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- ===== PIZZA DEALS ===== -->
+  <!-- ===================================================== -->
+  <main class="deal-panel" id="pizza-deals">
+
+    <section class="category-block">
+      <h3 class="category-title">1 Person &amp; Small Pizza Deals <span class="category-sub">(1 Person)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="18">
+          <div class="card-number">01</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Happy Deal" class="deal-img" data-img-for="18">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Happy Deal</h4>
+            <p class="deal-desc">1 Small Chicken Tikka Pizza &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 549</p>
+            <button class="add-cart-btn" data-price="549">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="19">
+          <div class="card-number">02</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Triangle Deal" class="deal-img" data-img-for="19">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Triangle Deal</h4>
+            <p class="deal-desc">1 Extra Large Slice Premium Pizza, 3 BBQ Wings, Dip Sauce &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 549</p>
+            <button class="add-cart-btn" data-price="549">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="20">
+          <div class="card-number">03</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Janan Deal" class="deal-img" data-img-for="20">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Janan Deal</h4>
+            <p class="deal-desc">1 Small Pizza, 5 Hot Wings &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 799</p>
+            <button class="add-cart-btn" data-price="799">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="21">
+          <div class="card-number">04</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Plus Deal" class="deal-img" data-img-for="21">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Plus Deal</h4>
+            <p class="deal-desc">1 Small Pizza, 3 Hot Wings, 1 Shawarma, 1 Sting &amp; Fries</p>
+            <p class="deal-price">Rs 999</p>
+            <button class="add-cart-btn" data-price="999">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="category-block">
+      <h3 class="category-title">2 Person &amp; Medium Pizza Deals <span class="category-sub">(2 Persons)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="22">
+          <div class="card-number">05</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Software Update Deal" class="deal-img" data-img-for="22">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Software Update Deal</h4>
+            <p class="deal-desc">1 Small Chicken Tikka Pizza, 2 Crunch Burgers &amp; 2 Reg Drinks</p>
+            <p class="deal-price">Rs 980</p>
+            <button class="add-cart-btn" data-price="980">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="23">
+          <div class="card-number">06</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Hungry Joe Deal" class="deal-img" data-img-for="23">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Hungry Joe Deal</h4>
+            <p class="deal-desc">1 Small Supreme Pizza, 1 Zinger Burger &amp; 1 Coke Can</p>
+            <p class="deal-price">Rs 949</p>
+            <button class="add-cart-btn" data-price="949">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="24">
+          <div class="card-number">07</div>
+          <div class="deal-image-frame">
+            <img src="" alt="2 Good Deal" class="deal-img" data-img-for="24">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">2 Good Deal</h4>
+            <p class="deal-desc">1 Small Hot &amp; Spicy Pizza, 4 Hot Wings, 1 Shawarma &amp; 2 Reg Drinks</p>
+            <p class="deal-price">Rs 999</p>
+            <button class="add-cart-btn" data-price="999">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="25">
+          <div class="card-number">08</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 5" class="deal-img" data-img-for="25">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 5</h4>
+            <p class="deal-desc">1 Medium Pizza, 4 Hot Wings &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1199</p>
+            <button class="add-cart-btn" data-price="1199">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="26">
+          <div class="card-number">09</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 6" class="deal-img" data-img-for="26">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 6</h4>
+            <p class="deal-desc">2 Medium Pizzas &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1749</p>
+            <button class="add-cart-btn" data-price="1749">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="27">
+          <div class="card-number">10</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 7" class="deal-img" data-img-for="27">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 7</h4>
+            <p class="deal-desc">1 Medium Pizza, 10 Hot Wings &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1499</p>
+            <button class="add-cart-btn" data-price="1499">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="category-block">
+      <h3 class="category-title">Family &amp; Large Pizza Deals <span class="category-sub">(3+ Persons)</span></h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="28">
+          <div class="card-number">11</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 1" class="deal-img" data-img-for="28">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 1</h4>
+            <p class="deal-desc">1 Large Special Pizza &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1399</p>
+            <button class="add-cart-btn" data-price="1399">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="29">
+          <div class="card-number">12</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 3" class="deal-img" data-img-for="29">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 3</h4>
+            <p class="deal-desc">1 Large Supreme Pizza, 10 Hot Wings &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 1799</p>
+            <button class="add-cart-btn" data-price="1799">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="30">
+          <div class="card-number">13</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 8" class="deal-img" data-img-for="30">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 8</h4>
+            <p class="deal-desc">1 Medium Pizza, 3 Zinger Burgers &amp; 1 Ltr Drink</p>
+            <p class="deal-price">Rs 1949</p>
+            <button class="add-cart-btn" data-price="1949">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="31">
+          <div class="card-number">14</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 2" class="deal-img" data-img-for="31">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 2</h4>
+            <p class="deal-desc">2 Large Chicken Tikka Pizzas &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 2449</p>
+            <button class="add-cart-btn" data-price="2449">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="32">
+          <div class="card-number">15</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Pizza Deal 4" class="deal-img" data-img-for="32">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Pizza Deal 4</h4>
+            <p class="deal-desc">1 Large Supreme Pizza, 3 Zinger Burgers &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 2449</p>
+            <button class="add-cart-btn" data-price="2449">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="33">
+          <div class="card-number">16</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Family Festival Deal" class="deal-img" data-img-for="33">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Family Festival Deal</h4>
+            <p class="deal-desc">1 Special Family Pizza, 10 Hot Wings, 3 Zinger Burgers &amp; 1.5 Ltr Drink</p>
+            <p class="deal-price">Rs 3499</p>
+            <button class="add-cart-btn" data-price="3499">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- ===== AFFORDABLE PACKAGES ===== -->
+  <!-- ===================================================== -->
+  <main class="deal-panel" id="afford-deals">
+
+    <section class="category-block">
+      <h3 class="category-title">Affordable Packages</h3>
+      <div class="deal-grid">
+
+        <article class="deal-card" data-deal="34">
+          <div class="card-number">01</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Student Deal" class="deal-img" data-img-for="34">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Student Deal</h4>
+            <p class="deal-desc">1 Student Burger, 1 Masala Chips &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 399</p>
+            <button class="add-cart-btn" data-price="399">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="35">
+          <div class="card-number">02</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Economy Meal 2" class="deal-img" data-img-for="35">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Economy Meal 2</h4>
+            <p class="deal-desc">1 Student Crunch Burger, 2 Hot Wings &amp; 1 Reg Drink</p>
+            <p class="deal-price">Rs 469</p>
+            <button class="add-cart-btn" data-price="469">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="deal-card" data-deal="36">
+          <div class="card-number">03</div>
+          <div class="deal-image-frame">
+            <img src="" alt="Kids Combo" class="deal-img" data-img-for="36">
+            <div class="img-placeholder">Add image</div>
+          </div>
+          <div class="card-body">
+            <h4 class="deal-name">Kids Combo</h4>
+            <p class="deal-desc">1 Crispy Burger, 4 Chicken Nuggets &amp; 1 Juice</p>
+            <p class="deal-price">Rs 499</p>
+            <button class="add-cart-btn" data-price="499">Add to Cart</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="deals.js"></script>
+</body>
+</html>

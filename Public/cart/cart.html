@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Your Cart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <!-- ===== Nav (same as every other page) ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../home page/index.html" class="logo">
+        <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+        <div class="logo-text-stack">
+          <span class="logo-script">The</span>
+          <span class="logo-main">BRGRZ</span>
+          <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="../bestseller/bestseller.html">Best Sellers</a>
+        <a href="../menu/menu.html">Menu</a>
+        <a href="../deals/deals.html">Deals</a>
+        <a href="../pizzas/pizzas.html">Pizzas</a>
+        <a href="../burgers/burgers.html">Burgers</a>
+        <a href="../beverages/beverages.html">Beverages</a>
+        <a href="../dips/dips.html">Dips &amp; Sauces</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+            <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+            <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Page head + step tracker ===== -->
+  <div class="cart-page-head">
+    <h1 class="cart-page-title" id="pageTitle">Your Cart</h1>
+    <div class="step-tracker" id="stepTracker">
+      <div class="step active" data-step="cart"><span class="dot">1</span> Cart</div>
+      <div class="sep"></div>
+      <div class="step" data-step="checkout"><span class="dot">2</span> Checkout</div>
+      <div class="sep"></div>
+      <div class="step" data-step="confirm"><span class="dot">3</span> Confirmed</div>
+    </div>
+    <div class="free-delivery-banner">
+      🚚 <strong>Free Delivery</strong> on orders of <strong>Rs 500</strong> and above — otherwise a flat Rs 150 delivery charge applies.
+    </div>
+  </div>
+
+  <!-- ===== VIEW 1: CART ===== -->
+  <section class="cart-view active" id="cartView">
+    <div class="cart-layout">
+
+      <div id="cartItemsContainer">
+        <!-- injected by JS: either .cart-items list or .empty-cart -->
+      </div>
+
+      <aside class="receipt" id="cartReceipt">
+        <div class="receipt-title">Order Summary</div>
+        <div class="receipt-sub">THE BRGRZ &bull; PESHAWAR</div>
+        <div id="cartReceiptRows"></div>
+        <div class="receipt-row" id="cartDeliveryRow"><span>Delivery Fee</span><span id="cartDeliveryFee">Rs 0</span></div>
+        <hr class="receipt-divider">
+        <div class="receipt-row total"><span>Total</span><span id="cartReceiptTotal">Rs 0</span></div>
+        <button class="receipt-cta" id="proceedToCheckoutBtn" disabled>Proceed to Checkout</button>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ===== VIEW 2: CHECKOUT ===== -->
+  <section class="checkout-view" id="checkoutView">
+    <div class="cart-layout checkout-grid">
+
+      <div>
+        <div class="form-card">
+          <h3>Contact Details</h3>
+          <div class="form-row" id="nameRow">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" placeholder="e.g. Ali Khan">
+            <div class="field-error">Please enter your name.</div>
+          </div>
+          <div class="form-row" id="phoneRow">
+            <label for="custPhone">Phone Number</label>
+            <input type="tel" id="custPhone" placeholder="03XX-XXXXXXX">
+            <div class="field-error">Please enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Delivery Location</h3>
+          <div class="form-row" id="areaRow">
+            <label for="custArea">Select Area — Peshawar</label>
+            <select id="custArea">
+              <option value="">Choose your area</option>
+              <optgroup label="Hayatabad">
+                <option>Hayatabad Phase 1</option>
+                <option>Hayatabad Phase 2</option>
+                <option>Hayatabad Phase 3</option>
+                <option>Hayatabad Phase 4</option>
+                <option>Hayatabad Phase 5</option>
+                <option>Hayatabad Phase 6</option>
+                <option>Hayatabad Phase 7</option>
+              </optgroup>
+              <optgroup label="Main Areas">
+                <option>University Town</option>
+                <option>Abdara Road</option>
+                <option>Saddar</option>
+                <option>Peshawar Cantt</option>
+                <option>Gulbahar</option>
+                <option>Tehkal</option>
+                <option>Faqirabad</option>
+                <option>Gulberg</option>
+                <option>Wazir Bagh</option>
+                <option>Lalazar Colony</option>
+                <option>Shaheen Town</option>
+                <option>Regi Model Town</option>
+                <option>Yousafabad</option>
+                <option>Pajagi Road</option>
+                <option>Warsak Road</option>
+                <option>Charsadda Road</option>
+                <option>Ring Road</option>
+                <option>Dalazak Road</option>
+                <option>Phandu Road</option>
+                <option>Karkhano Market</option>
+                <option>GT Road</option>
+                <option>Achini</option>
+              </optgroup>
+              <option value="Other">Other (mention in address below)</option>
+            </select>
+            <div class="field-error">Please select your area.</div>
+          </div>
+          <div class="form-row" id="addressRow">
+            <label for="custAddress">Street / House / Apartment</label>
+            <textarea id="custAddress" placeholder="House #, street, nearest landmark..."></textarea>
+            <div class="field-error">Please enter your address.</div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Payment Method</h3>
+          <div class="pay-options">
+            <div class="pay-option" data-method="COD" id="payCOD">
+              <span class="pay-icon">💵</span>
+              <span class="pay-name">Cash on Delivery</span>
+              <span class="pay-desc">Pay when your order arrives</span>
+            </div>
+            <div class="pay-option" data-method="Online" id="payOnline">
+              <span class="pay-icon">🏦</span>
+              <span class="pay-name">Online Payment</span>
+              <span class="pay-desc">Bank transfer / JazzCash / Easypaisa</span>
+            </div>
+          </div>
+
+          <div class="online-pay-box" id="onlinePayBox">
+            <div class="bank-row">
+              <span class="bank-label">Bank</span>
+              <span class="bank-value">Meezan Bank</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account Title</span>
+              <span class="bank-value">The BRGRZ</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account Number</span>
+              <span class="bank-value">0123-4567890-1
+                <button class="copy-btn" data-copy="01234567890">Copy</button>
+              </span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">JazzCash / Easypaisa</span>
+              <span class="bank-value">0301-8766770
+                <button class="copy-btn" data-copy="03018766770">Copy</button>
+              </span>
+            </div>
+            <p class="online-pay-note">
+              Send the exact order total to the account above, then tick the box below
+              and place your order. We'll confirm the payment by phone before your food
+              goes into the kitchen.
+            </p>
+            <label class="confirm-checkbox">
+              <input type="checkbox" id="paidConfirm">
+              I have sent the payment for this order.
+            </label>
+          </div>
+
+          <div class="field-error" id="paymentError" style="margin-top:10px;">Please choose a payment method.</div>
+        </div>
+      </div>
+
+      <aside class="receipt" id="checkoutReceipt">
+        <div class="receipt-title">Order Summary</div>
+        <div class="receipt-sub">THE BRGRZ &bull; PESHAWAR</div>
+        <div id="checkoutReceiptRows"></div>
+        <div class="receipt-row" id="checkoutDeliveryRow"><span>Delivery Fee</span><span id="checkoutDeliveryFee">Rs 0</span></div>
+        <hr class="receipt-divider">
+        <div class="receipt-row total"><span>Total</span><span id="checkoutReceiptTotal">Rs 0</span></div>
+        <p class="receipt-disclaimer">* Pictures are for illustration only — the actual product may look slightly different.</p>
+        <button class="receipt-cta" id="placeOrderBtn" disabled>Place Order</button>
+        <button class="receipt-back" id="backToCartBtn">&larr; Back to Cart</button>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ===== VIEW 3: CONFIRMATION ===== -->
+  <section class="confirm-view" id="confirmView">
+    <div class="confirm-check">✓</div>
+    <h2>Order Placed!</h2>
+    <div class="confirm-order-id" id="confirmOrderId">BRGRZ-000000</div>
+    <p class="note">
+      Thanks for ordering from The BRGRZ! We'll call you shortly to confirm your order
+      before it heads out for delivery, hot and fresh.
+    </p>
+    <a href="../home page/index.html" class="home-btn">Back to Home</a>
+  </section>
+
+<script src="cart.js"></script>
+</body>
+</html>

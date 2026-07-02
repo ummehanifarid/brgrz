@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Burgers Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="burgers.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Menu Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Premium Burgers Menu</h2>
+    <p class="menu-sub">Flame-grilled, hand-pressed, served hot. Pick your favorite below.</p>
+  </section>
+
+  <!-- ===== Burger Grid ===== -->
+  <main class="burger-grid" id="burger-grid">
+
+    <!-- Card 1 -->
+    <article class="burger-card" data-burger="1">
+      <div class="card-number">01</div>
+      <div class="burger-image-frame">
+        <img src="special-zinger.png" alt="Special Zinger Burger" class="burger-img" data-img-for="1">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Special Zinger Burger</h3>
+        <p class="burger-price">Rs 380</p>
+        <button class="add-cart-btn" data-price="380">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="burger-card" data-burger="2">
+      <div class="card-number">02</div>
+      <div class="burger-image-frame">
+        <img src="cheesy-zinger.png" alt="Cheesy Zinger Burger" class="burger-img" data-img-for="2">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Cheesy Zinger Burger</h3>
+        <p class="burger-price">Rs 449</p>
+        <button class="add-cart-btn" data-price="449">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="burger-card" data-burger="3">
+      <div class="card-number">03</div>
+      <div class="burger-image-frame">
+        <img src="khalifa-tower.png" alt="Khalifa Tower Burger" class="burger-img" data-img-for="3">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Khalifa Tower Burger</h3>
+        <p class="burger-price">Rs 549</p>
+        <button class="add-cart-btn" data-price="549">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="burger-card" data-burger="4">
+      <div class="card-number">04</div>
+      <div class="burger-image-frame">
+        <img src="stackerburger.png" alt="Stacker Burger" class="burger-img" data-img-for="4">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Stacker Burger</h3>
+        <p class="burger-price">Rs 549</p>
+        <button class="add-cart-btn" data-price="549">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="burger-card" data-burger="5">
+      <div class="card-number">05</div>
+      <div class="burger-image-frame">
+        <img src="spicy-jalepino.png" alt="Spicy Jalapeno Burger" class="burger-img" data-img-for="5">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Spicy Jalapeno Burger</h3>
+        <p class="burger-price">Rs 399</p>
+        <button class="add-cart-btn" data-price="399">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="burger-card" data-burger="6">
+      <div class="card-number">06</div>
+      <div class="burger-image-frame">
+        <img src="V8.png" alt="V8 Burger" class="burger-img" data-img-for="6">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">V8 Burger</h3>
+        <p class="burger-price">Rs 699</p>
+        <button class="add-cart-btn" data-price="699">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="burger-card" data-burger="7">
+      <div class="card-number">07</div>
+      <div class="burger-image-frame">
+        <img src="jhonny-walker.png" alt="Johnny Walker Beef" class="burger-img" data-img-for="7">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Johnny Walker Beef</h3>
+        <p class="burger-price">Rs 599</p>
+        <button class="add-cart-btn" data-price="599">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="burger-card" data-burger="8">
+      <div class="card-number">08</div>
+      <div class="burger-image-frame">
+        <img src="animal-beef.png" alt="The Animal Burger Beef" class="burger-img" data-img-for="8">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">The Animal Burger Beef</h3>
+        <p class="burger-price">Rs 799</p>
+        <button class="add-cart-btn" data-price="799">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 9 -->
+    <article class="burger-card" data-burger="9">
+      <div class="card-number">09</div>
+      <div class="burger-image-frame">
+        <img src="chicken-pounder.png" alt="Quarter Pounder Ham Burger" class="burger-img" data-img-for="9">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Quarter Pounder Ham Burger</h3>
+        <p class="burger-price">Rs 499</p>
+        <button class="add-cart-btn" data-price="499">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 10 -->
+    <article class="burger-card" data-burger="10">
+      <div class="card-number">10</div>
+      <div class="burger-image-frame">
+        <img src="chicken-mac.png" alt="Crispy Chicken Mac" class="burger-img" data-img-for="10">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Crispy Chicken Mac</h3>
+        <p class="burger-price">Rs 299</p>
+        <button class="add-cart-btn" data-price="299">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 11 -->
+    <article class="burger-card" data-burger="11">
+      <div class="card-number">11</div>
+      <div class="burger-image-frame">
+        <img src="student-crunch-burger.png" alt="Student Crunch Burger" class="burger-img" data-img-for="11">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Student Crunch Burger</h3>
+        <p class="burger-price">Rs 299</p>
+        <button class="add-cart-btn" data-price="299">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 12 -->
+    <article class="burger-card" data-burger="12">
+      <div class="card-number">12</div>
+      <div class="burger-image-frame">
+        <img src="tikka-burger.png" alt="Tikka Burger" class="burger-img" data-img-for="12">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">Tikka Burger</h3>
+        <p class="burger-price">Rs 199</p>
+        <button class="add-cart-btn" data-price="199">Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 13 -->
+    <article class="burger-card" data-burger="13">
+      <div class="card-number">13</div>
+      <div class="burger-image-frame">
+        <img src="bbqtikka.jpg" alt="BBQ Tikka Burger" class="burger-img" data-img-for="13">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="burger-name">BBQ Tikka Burger</h3>
+        <p class="burger-price">Rs 199</p>
+        <button class="add-cart-btn" data-price="199">Add to Cart</button>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="burgers.js"></script>
+</body>
+</html> 

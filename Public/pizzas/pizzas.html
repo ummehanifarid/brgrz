@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Brgrz — Pizza Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pizzas.css">
+</head>
+<body>
+
+  <!-- ===== Background ambience ===== -->
+  <div class="ember" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a  href="../home page/index.html" class="logo">
+                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                    <div class="logo-text-stack">
+                        <span class="logo-script">The</span>
+                        <span class="logo-main">BRGRZ</span>
+                        <span class="logo-sub">FAST FOOD &middot; PESHAWAR</span>
+                    </div>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="../bestseller/bestseller.html">Best Sellers</a>
+                    <a href="../menu/menu.html">Menu</a>
+                    <a href="../deals/deals.html">Deals</a>
+                    <a href="../pizzas/pizzas.html">Pizzas</a>
+                    <a href="../burgers/burgers.html">Burgers</a>
+                    <a href="../beverages/beverages.html">Beverages</a>
+                    <a href="../dips/dips.html">Dips & Sauces</a>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+
+                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                        <button class="cart-btn" id="cartBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
+                                <circle cx="9" cy="21" r="1.4" fill="currentColor"></circle>
+                                <circle cx="17" cy="21" r="1.4" fill="currentColor"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </a>
+
+                    <button class="burger-toggle" id="burgerToggle" aria-label="Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+
+  <!-- ===== Menu Title ===== -->
+  <section class="menu-title-block">
+    <span class="menu-kicker">Fresh &amp; Tasty</span>
+    <h2 class="menu-title">Premium Pizza Menu</h2>
+    <p class="menu-sub">Stone-baked, loaded fresh, sliced hot. Pick your size below.</p>
+  </section>
+
+  <!-- ===== Pizza Grid ===== -->
+  <main class="pizza-grid" id="pizza-grid">
+
+    <!-- Card 1 -->
+    <article class="pizza-card" data-pizza="1">
+      <div class="card-number">01</div>
+      <div class="pizza-image-frame">
+        <img src="premium.png" alt="Premium Pizza" class="pizza-img" data-img-for="1">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Premium Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes, beef sausages, lots of cheese &amp; chicken</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="649">
+            <span class="size-label">Small</span><span class="size-price">Rs 649</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="949">
+            <span class="size-label">Medium</span><span class="size-price">Rs 949</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1449">
+            <span class="size-label">Large</span><span class="size-price">Rs 1449</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1899">
+            <span class="size-label">Family</span><span class="size-price">Rs 1899</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="pizza-card" data-pizza="2">
+      <div class="card-number">02</div>
+      <div class="pizza-image-frame">
+        <img src="brgrzspecial.png" alt="Brgrz Special Pizza" class="pizza-img" data-img-for="2">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Brgrz Special Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes, beef sausages, beef pepperoni, sweet corn, mushroom</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="599">
+            <span class="size-label">Small</span><span class="size-price">Rs 599</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="899">
+            <span class="size-label">Medium</span><span class="size-price">Rs 899</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1299">
+            <span class="size-label">Large</span><span class="size-price">Rs 1299</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1849">
+            <span class="size-label">Family</span><span class="size-price">Rs 1849</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="pizza-card" data-pizza="3">
+      <div class="card-number">03</div>
+      <div class="pizza-image-frame">
+        <img src="crown crust.png" alt="Crown Crust Pizza" class="pizza-img" data-img-for="3">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Crown Crust Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes, sweet corn, mushroom</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="699">
+            <span class="size-label">Small</span><span class="size-price">Rs 699</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="949">
+            <span class="size-label">Medium</span><span class="size-price">Rs 949</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1499">
+            <span class="size-label">Large</span><span class="size-price">Rs 1499</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1899">
+            <span class="size-label">Family</span><span class="size-price">Rs 1899</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="pizza-card" data-pizza="4">
+      <div class="card-number">04</div>
+      <div class="pizza-image-frame">
+        <img src="labnani.jpg" alt="Cheesy Labnani Pizza" class="pizza-img" data-img-for="4">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Cheesy Labnani Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, sweet corn, mushroom, lots of cheese</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="749">
+            <span class="size-label">Small</span><span class="size-price">Rs 749</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="1099">
+            <span class="size-label">Medium</span><span class="size-price">Rs 1099</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1849">
+            <span class="size-label">Large</span><span class="size-price">Rs 1849</span>
+          </button>
+          <button class="size-btn size-na" data-size="Family" data-price="" disabled>
+            <span class="size-label">Family</span><span class="size-price">—</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="pizza-card" data-pizza="5">
+      <div class="card-number">05</div>
+      <div class="pizza-image-frame">
+        <img src="chicken tandoori.png" alt="Chicken Tandoori Pizza" class="pizza-img" data-img-for="5">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Chicken Tandoori Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="799">
+            <span class="size-label">Medium</span><span class="size-price">Rs 799</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="pizza-card" data-pizza="6">
+      <div class="card-number">06</div>
+      <div class="pizza-image-frame">
+        <img src="butterchicken.png" alt="Butter Chicken Pizza" class="pizza-img" data-img-for="6">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Butter Chicken Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="799">
+            <span class="size-label">Medium</span><span class="size-price">Rs 799</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="pizza-card" data-pizza="7">
+      <div class="card-number">07</div>
+      <div class="pizza-image-frame">
+        <img src="chicken tikka.png" alt="Chicken Tikka Pizza" class="pizza-img" data-img-for="7">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Chicken Tikka Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes &amp; onions</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="849">
+            <span class="size-label">Medium</span><span class="size-price">Rs 849</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="pizza-card" data-pizza="8">
+      <div class="card-number">08</div>
+      <div class="pizza-image-frame">
+        <img src="classic supreme.png" alt="Classic Supreme Pizza" class="pizza-img" data-img-for="8">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Classic Supreme Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes &amp; onions, sweet corn, mushroom</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="849">
+            <span class="size-label">Medium</span><span class="size-price">Rs 849</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 9 -->
+    <article class="pizza-card" data-pizza="9">
+      <div class="card-number">09</div>
+      <div class="pizza-image-frame">
+        <img src="chicken fajita.png" alt="Chicken Fajita Pizza" class="pizza-img" data-img-for="9">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Chicken Fajita Pizza</h3>
+        <p class="pizza-ingredients">Black olive, capsicum, tomatoes</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="849">
+            <span class="size-label">Medium</span><span class="size-price">Rs 849</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 10 -->
+    <article class="pizza-card" data-pizza="10">
+      <div class="card-number">10</div>
+      <div class="pizza-image-frame">
+        <img src="hot spicy.png" alt="Hot Spicy Pizza" class="pizza-img" data-img-for="10">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Hot Spicy Pizza</h3>
+        <p class="pizza-ingredients">Jalapeno, black olive, onions</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="849">
+            <span class="size-label">Medium</span><span class="size-price">Rs 849</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 11 -->
+    <article class="pizza-card" data-pizza="11">
+      <div class="card-number">11</div>
+      <div class="pizza-image-frame">
+        <img src="smokey BBQ.png" alt="Smokey BBQ Pizza" class="pizza-img" data-img-for="11">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Smokey BBQ Pizza</h3>
+        <p class="pizza-ingredients">Capsicum &amp; onions</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="549">
+            <span class="size-label">Small</span><span class="size-price">Rs 549</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="849">
+            <span class="size-label">Medium</span><span class="size-price">Rs 849</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1199">
+            <span class="size-label">Large</span><span class="size-price">Rs 1199</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1749">
+            <span class="size-label">Family</span><span class="size-price">Rs 1749</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 12 -->
+    <article class="pizza-card" data-pizza="12">
+      <div class="card-number">12</div>
+      <div class="pizza-image-frame">
+        <img src="kababcrust.png" alt="Kabab Crust Pizza" class="pizza-img" data-img-for="12">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Kabab Crust Pizza</h3>
+        <p class="pizza-ingredients">BBQ seekh kababs, black olives, capsicum &amp; tomatoes</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="699">
+            <span class="size-label">Small</span><span class="size-price">Rs 699</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="999">
+            <span class="size-label">Medium</span><span class="size-price">Rs 999</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1499">
+            <span class="size-label">Large</span><span class="size-price">Rs 1499</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1999">
+            <span class="size-label">Family</span><span class="size-price">Rs 1999</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+    <!-- Card 13 -->
+    <article class="pizza-card" data-pizza="13">
+      <div class="card-number">13</div>
+      <div class="pizza-image-frame">
+        <img src="cheese crust pizza.png" alt="Cheese Crust Pizza" class="pizza-img" data-img-for="13">
+        <div class="img-placeholder">Add image</div>
+      </div>
+      <div class="card-body">
+        <h3 class="pizza-name">Cheese Crust Pizza</h3>
+        <p class="pizza-ingredients">Stuffed cheese, sausages, mushroom, sweet corn</p>
+        <div class="size-grid">
+          <button class="size-btn" data-size="Small" data-price="699">
+            <span class="size-label">Small</span><span class="size-price">Rs 699</span>
+          </button>
+          <button class="size-btn" data-size="Medium" data-price="999">
+            <span class="size-label">Medium</span><span class="size-price">Rs 999</span>
+          </button>
+          <button class="size-btn" data-size="Large" data-price="1499">
+            <span class="size-label">Large</span><span class="size-price">Rs 1499</span>
+          </button>
+          <button class="size-btn" data-size="Family" data-price="1999">
+            <span class="size-label">Family</span><span class="size-price">Rs 1999</span>
+          </button>
+        </div>
+        <button class="add-cart-btn" disabled>Add to Cart</button>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p class="footer-loc">📍 Super Market, Hayatabad Phase 1</p>
+    <p class="footer-contact">📞 0301-8766770 &nbsp;/&nbsp; 0305-9173712</p>
+    <p class="footer-note">Online payments accepted &nbsp;•&nbsp; Dine in &nbsp;•&nbsp; Home delivery</p>
+  </footer>
+
+  <!-- ===== Floating Cart Bar ===== -->
+  <div class="cart-bar" id="cart-bar">
+    <span id="cart-count">0 items</span>
+    <span id="cart-total">Rs 0</span>
+  </div>
+
+<script src="../cart/cart.js"></script>
+<script src="pizzas.js"></script>
+</body>
+</html>
