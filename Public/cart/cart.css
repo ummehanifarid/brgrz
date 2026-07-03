@@ -494,6 +494,11 @@ button { font-family: var(--font-body); }
   box-shadow: 0 6px 14px rgba(232,176,75,0.4);
 }
 .receipt-cta:hover:not(:disabled) { transform: translateY(-2px); }
+.receipt-cta.success {
+  background: linear-gradient(135deg, var(--green), #1e6b2c);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(46,139,62,0.4);
+}
 .receipt-cta:disabled {
   background: rgba(255,255,255,0.08);
   color: rgba(247,234,214,0.4);

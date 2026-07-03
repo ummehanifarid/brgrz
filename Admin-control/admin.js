@@ -114,7 +114,7 @@ async function loadAllData() {
     }));
   } catch (err) {
     console.error('Data load error:', err.message);
-    alert('Server se connect nahi ho saka. Check karo ke server chal raha hai.');
+    alert('Could not connect to the server. Please check if the server is running.');
   }
 }
 

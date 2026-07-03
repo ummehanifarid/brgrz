@@ -31,10 +31,10 @@ app.use('/api/stats',      require('./routes/Stats'));      // routes/Stats.js  
 
 // ─── PAGE ROUTES ──────────────────────────────────────────
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Public', 'home page', 'index.html'));
+  res.redirect('/home page/index.html');
 });
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Admin-control', 'admin.html'));
+  res.redirect('/admin/admin.html');
 });
 
 // ─── SEED DEFAULT CATEGORIES ──────────────────────────────

@@ -146,9 +146,13 @@ const BrgrzCart = (() => {
     });
     const data = await res.json();
 
+    if (!res.ok) {
+      throw new Error(data.error || 'Failed to place order');
+    }
+
     await clearCart();
     // Return short order ID for confirmation screen
-    return data._id ? data._id.toString().slice(-6).toUpperCase() : 'ORDER';
+    return data._id.toString().slice(-6).toUpperCase();
   }
 
   // Nav badge refresh on every page load
@@ -170,3 +174,232 @@ const BrgrzCart = (() => {
   };
 
 })();
+
+/* =====================================================================
+   CART PAGE VIEW — renders #cartItemsContainer / receipt / checkout.
+   Only runs on cart.html (guarded by the cartItemsContainer check),
+   since this file is also loaded on every other page just for BrgrzCart.
+   ===================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const itemsContainer = document.getElementById('cartItemsContainer');
+  if (!itemsContainer) return;
+
+  const cartView       = document.getElementById('cartView');
+  const checkoutView   = document.getElementById('checkoutView');
+  const confirmView    = document.getElementById('confirmView');
+  const stepTracker     = document.getElementById('stepTracker');
+
+  const cartReceiptRows   = document.getElementById('cartReceiptRows');
+  const cartDeliveryFee   = document.getElementById('cartDeliveryFee');
+  const cartReceiptTotal  = document.getElementById('cartReceiptTotal');
+  const proceedBtn        = document.getElementById('proceedToCheckoutBtn');
+
+  const checkoutReceiptRows  = document.getElementById('checkoutReceiptRows');
+  const checkoutDeliveryFee  = document.getElementById('checkoutDeliveryFee');
+  const checkoutReceiptTotal = document.getElementById('checkoutReceiptTotal');
+  const placeOrderBtn        = document.getElementById('placeOrderBtn');
+  const backToCartBtn        = document.getElementById('backToCartBtn');
+
+  const custName    = document.getElementById('custName');
+  const custPhone   = document.getElementById('custPhone');
+  const custArea    = document.getElementById('custArea');
+  const custAddress = document.getElementById('custAddress');
+  const payCOD      = document.getElementById('payCOD');
+  const payOnline   = document.getElementById('payOnline');
+  const onlinePayBox= document.getElementById('onlinePayBox');
+  const paidConfirm = document.getElementById('paidConfirm');
+  const paymentError= document.getElementById('paymentError');
+  const confirmOrderId = document.getElementById('confirmOrderId');
+
+  let paymentMethod = null;
+
+  function esc(str) {
+    return String(str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function receiptRowsHtml(items) {
+    return items.map(it => `
+      <div class="receipt-row">
+        <span>${esc(it.name)}${it.size ? ' (' + esc(it.size) + ')' : ''} x${it.qty}</span>
+        <span>Rs ${(it.price * it.qty).toLocaleString()}</span>
+      </div>`).join('');
+  }
+
+  async function renderReceipts() {
+    const summary = await BrgrzCart.getCartSummary();
+    const items   = await BrgrzCart.getCart();
+    const rowsHtml = receiptRowsHtml(items);
+
+    cartReceiptRows.innerHTML = rowsHtml;
+    cartDeliveryFee.textContent = 'Rs ' + summary.deliveryFee.toLocaleString();
+    cartReceiptTotal.textContent = 'Rs ' + summary.total.toLocaleString();
+    proceedBtn.disabled = items.length === 0;
+
+    checkoutReceiptRows.innerHTML = rowsHtml;
+    checkoutDeliveryFee.textContent = 'Rs ' + summary.deliveryFee.toLocaleString();
+    checkoutReceiptTotal.textContent = 'Rs ' + summary.total.toLocaleString();
+  }
+
+  function cartItemHtml(it) {
+    return `
+      <div class="cart-item" data-id="${esc(it.id)}">
+        <div class="cart-item-thumb"><img src="${esc(it.image)}" alt="${esc(it.name)}"></div>
+        <div class="cart-item-info">
+          <h4>${esc(it.name)}</h4>
+          <div class="cart-item-meta">
+            ${it.size ? `<span class="size-tag">${esc(it.size)}</span>` : ''}
+            <span class="unit-price">Rs ${it.price.toLocaleString()} each</span>
+          </div>
+        </div>
+        <div class="cart-item-right">
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" data-action="dec" data-id="${esc(it.id)}">&minus;</button>
+            <span>${it.qty}</span>
+            <button type="button" class="qty-btn" data-action="inc" data-id="${esc(it.id)}">+</button>
+          </div>
+          <div class="line-total">Rs ${(it.price * it.qty).toLocaleString()}</div>
+          <button type="button" class="remove-btn" data-id="${esc(it.id)}">Remove</button>
+        </div>
+      </div>`;
+  }
+
+  async function renderCartItems() {
+    const items = await BrgrzCart.getCart();
+
+    if (items.length === 0) {
+      itemsContainer.innerHTML = `
+        <div class="empty-cart">
+          <div class="icon">🛒</div>
+          <h3>Your cart is empty</h3>
+          <p>Looks like you haven't added anything yet.</p>
+          <a href="../menu/menu.html">Browse Menu</a>
+        </div>`;
+    } else {
+      itemsContainer.innerHTML = `<div class="cart-items">${items.map(cartItemHtml).join('')}</div>`;
+    }
+
+    await renderReceipts();
+  }
+
+  itemsContainer.addEventListener('click', async (e) => {
+    const qtyBtn = e.target.closest('.qty-btn');
+    const removeBtn = e.target.closest('.remove-btn');
+
+    if (qtyBtn) {
+      const id = qtyBtn.dataset.id;
+      const items = await BrgrzCart.getCart();
+      const item = items.find(it => it.id === id);
+      if (!item) return;
+      const newQty = qtyBtn.dataset.action === 'inc' ? item.qty + 1 : item.qty - 1;
+      await BrgrzCart.updateQty(id, newQty);
+      await renderCartItems();
+    } else if (removeBtn) {
+      await BrgrzCart.removeFromCart(removeBtn.dataset.id);
+      await renderCartItems();
+    }
+  });
+
+  function setStep(step) {
+    stepTracker.querySelectorAll('.step').forEach(el => {
+      el.classList.remove('active', 'done');
+      const order = ['cart', 'checkout', 'confirm'];
+      if (order.indexOf(el.dataset.step) < order.indexOf(step)) el.classList.add('done');
+      if (el.dataset.step === step) el.classList.add('active');
+    });
+  }
+
+  function showView(view) {
+    [cartView, checkoutView, confirmView].forEach(v => v.classList.remove('active'));
+    view.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  proceedBtn.addEventListener('click', async () => {
+    await renderReceipts();
+    placeOrderBtn.disabled = false;
+    setStep('checkout');
+    showView(checkoutView);
+  });
+
+  backToCartBtn.addEventListener('click', () => {
+    setStep('cart');
+    showView(cartView);
+  });
+
+  function validateField(input, isValid) {
+    const row = input.closest('.form-row');
+    row.classList.toggle('invalid', !isValid);
+    return isValid;
+  }
+
+  function validateForm() {
+    const nameValid    = validateField(custName, custName.value.trim().length > 0);
+    const phoneValid   = validateField(custPhone, /^0\d{9,10}$/.test(custPhone.value.trim()));
+    const areaValid    = validateField(custArea, custArea.value.trim().length > 0);
+    const addressValid = validateField(custAddress, custAddress.value.trim().length > 0);
+
+    let paymentValid = !!paymentMethod;
+    if (paymentMethod === 'Online') paymentValid = paidConfirm.checked;
+    paymentError.style.display = paymentValid ? 'none' : 'block';
+
+    return nameValid && phoneValid && areaValid && addressValid && paymentValid;
+  }
+
+  [custName, custPhone, custArea, custAddress].forEach(input => {
+    input.addEventListener('input', () => validateField(input, input.value.trim().length > 0));
+  });
+
+  function selectPayment(method) {
+    paymentMethod = method;
+    payCOD.classList.toggle('selected', method === 'COD');
+    payOnline.classList.toggle('selected', method === 'Online');
+    onlinePayBox.classList.toggle('show', method === 'Online');
+    paymentError.style.display = 'none';
+  }
+
+  payCOD.addEventListener('click', () => selectPayment('COD'));
+  payOnline.addEventListener('click', () => selectPayment('Online'));
+
+  const paymentErrorDefaultText = paymentError.textContent;
+
+  placeOrderBtn.addEventListener('click', async () => {
+    if (!validateForm()) return;
+
+    placeOrderBtn.disabled = true;
+    placeOrderBtn.textContent = 'Placing Order...';
+    paymentError.textContent = paymentErrorDefaultText;
+    paymentError.style.display = 'none';
+
+    try {
+      const orderId = await BrgrzCart.placeOrder({
+        customer:      custName.value.trim(),
+        phone:         custPhone.value.trim(),
+        area:          custArea.value.trim(),
+        address:       custAddress.value.trim(),
+        paymentMethod,
+      });
+
+      placeOrderBtn.classList.add('success');
+      placeOrderBtn.textContent = 'Order Placed! ✓';
+
+      setTimeout(() => {
+        confirmOrderId.textContent = 'BRGRZ-' + orderId;
+        setStep('confirm');
+        showView(confirmView);
+        placeOrderBtn.classList.remove('success');
+        placeOrderBtn.textContent = 'Place Order';
+        placeOrderBtn.disabled = true;
+      }, 900);
+    } catch (err) {
+      console.error('Place order error:', err);
+      paymentError.textContent = 'Something went wrong placing your order. Please try again.';
+      paymentError.style.display = 'block';
+      placeOrderBtn.disabled = false;
+      placeOrderBtn.textContent = 'Place Order';
+    }
+  });
+
+  renderCartItems();
+});

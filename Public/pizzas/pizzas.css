@@ -187,6 +187,14 @@ body {
   padding: 36px 24px 70px;
 }
 
+.grid-loading, .grid-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--cream-dim);
+  font-size: 15px;
+  padding: 50px 0;
+}
+
 /* ---------- Pizza Card ---------- */
 .pizza-card {
   position: relative;

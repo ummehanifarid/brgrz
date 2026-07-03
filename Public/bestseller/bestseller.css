@@ -134,6 +134,14 @@ body {
   padding-bottom: 32px;
 }
 
+.grid-loading, .grid-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--cream-dim);
+  font-size: 15px;
+  padding: 50px 0;
+}
+
 /* ---------- Item Card ---------- */
 .item-card {
   position: relative;
