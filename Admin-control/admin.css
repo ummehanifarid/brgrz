@@ -181,6 +181,24 @@ body {
   transition: border-color .2s, color .2s;
 }
 .btn-ghost:hover { border-color: var(--muted); color: var(--cream); }
+.btn-ghost.small { padding: 7px 14px; font-size: 12px; }
+
+.variant-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.variant-row input { flex: 1; min-width: 0; }
+.variant-row .remove-variant-btn {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid var(--maroon-700);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 12px;
+}
+.variant-row .remove-variant-btn:hover { border-color: #ff6b6b; color: #ff6b6b; }
 
 .btn-danger {
   background: #8b1a1a;
@@ -620,6 +638,7 @@ body {
   padding: 16px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-auto-rows: min-content;
   gap: 14px;
   align-content: start;
 }
@@ -660,6 +679,7 @@ body {
 
 .item-card-body { padding: 12px; }
 .item-card-name { font-size: 13px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
+.item-card-section { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; }
 .item-card-price { font-size: 12px; color: var(--gold-500); font-weight: 600; margin-bottom: 10px; }
 .item-card-desc { font-size: 11px; color: var(--muted-dim); margin-bottom: 10px; }
 

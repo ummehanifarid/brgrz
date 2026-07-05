@@ -77,6 +77,10 @@ const itemModalTitle = document.getElementById('itemModalTitle');
 const itemName       = document.getElementById('itemName');
 const itemPrice      = document.getElementById('itemPrice');
 const itemDesc       = document.getElementById('itemDesc');
+const itemSection    = document.getElementById('itemSection');
+const itemSectionList= document.getElementById('itemSectionList');
+const variantRows    = document.getElementById('variantRows');
+const addVariantRowBtn = document.getElementById('addVariantRowBtn');
 const itemImageFile  = document.getElementById('itemImageFile');
 const imgPreview     = document.getElementById('imgPreview');
 const saveItemBtn    = document.getElementById('saveItemBtn');
@@ -90,7 +94,14 @@ let pendingItemImage = null;
 async function api(method, path, body = null) {
   const opts = { method, headers: { 'Content-Type': 'application/json' } };
   if (body) opts.body = JSON.stringify(body);
-  const res  = await fetch(path, opts);
+  const res = await fetch(path, opts);
+
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    if (res.status === 413) throw new Error('That file is too large. Please use a smaller image.');
+    throw new Error(`Server error (${res.status} ${res.statusText})`);
+  }
+
   const json = await res.json();
   if (!res.ok) throw new Error(json.error || 'API error');
   return json;
@@ -175,7 +186,7 @@ navItems.forEach(btn => btn.addEventListener('click', () => navigateTo(btn.datas
 sidebarToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
 document.addEventListener('click', (e) => {
   if (window.innerWidth <= 700 && sidebar.classList.contains('open')) {
-    if (!sidebar.contains(e.target) && e.target !== sidebarToggle)
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target))
       sidebar.classList.remove('open');
   }
 });
@@ -428,6 +439,16 @@ addItemBtn.addEventListener('click', () => {
   openItemModal(null, null);
 });
 
+function renderItemPrice(item) {
+  if (item.variants && item.variants.length > 0) {
+    const prices = item.variants.map(v => v.price);
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const range = min === max ? `Rs ${min.toLocaleString()}` : `Rs ${min.toLocaleString()} – ${max.toLocaleString()}`;
+    return `<div class="item-card-price">${range}</div>`;
+  }
+  return item.price ? `<div class="item-card-price">Rs ${parseFloat(item.price).toLocaleString()}</div>` : '';
+}
+
 function renderItems(catKey) {
   const items = state.items[catKey] || [];
   if (items.length === 0) {
@@ -441,7 +462,8 @@ function renderItems(catKey) {
         : `<div class="item-card-img-placeholder"><i class="fa fa-image"></i><span>No image</span></div>`}
       <div class="item-card-body">
         <div class="item-card-name">${esc(item.name)}</div>
-        ${item.price ? `<div class="item-card-price">Rs ${parseFloat(item.price).toLocaleString()}</div>` : ''}
+        ${item.section ? `<div class="item-card-section">${esc(item.section)}</div>` : ''}
+        ${renderItemPrice(item)}
         ${item.desc  ? `<div class="item-card-desc">${esc(item.desc)}</div>` : ''}
         <div class="item-card-actions">
           <button class="action-btn" onclick="editItem('${catKey}', ${i})" title="Edit"><i class="fa fa-pencil"></i></button>
@@ -451,21 +473,56 @@ function renderItems(catKey) {
     </div>`).join('');
 }
 
+function addVariantRow(label = '', price = '') {
+  const row = document.createElement('div');
+  row.className = 'variant-row';
+  row.innerHTML = `
+    <input type="text" class="variant-label" placeholder="e.g. Small" value="${esc(label)}">
+    <input type="number" class="variant-price" placeholder="Rs" value="${price}">
+    <button type="button" class="remove-variant-btn" title="Remove"><i class="fa fa-times"></i></button>`;
+  row.querySelector('.remove-variant-btn').addEventListener('click', () => row.remove());
+  variantRows.appendChild(row);
+}
+
+addVariantRowBtn.addEventListener('click', () => addVariantRow());
+
+function getVariantsFromRows() {
+  return [...variantRows.querySelectorAll('.variant-row')]
+    .map(row => ({
+      label: row.querySelector('.variant-label').value.trim(),
+      price: parseFloat(row.querySelector('.variant-price').value) || 0,
+    }))
+    .filter(v => v.label && v.price > 0);
+}
+
+function populateSectionDatalist(catKey) {
+  const sections = new Set(
+    (state.items[catKey] || [])
+      .map(it => (it.section || '').trim())
+      .filter(Boolean)
+  );
+  itemSectionList.innerHTML = [...sections].map(s => `<option value="${esc(s)}">`).join('');
+}
+
 function openItemModal(catKey, idx) {
   state.editingItemId = null;
   itemModalTitle.textContent = idx === null ? 'Add Item' : 'Edit Item';
   pendingItemImage = null;
+  variantRows.innerHTML = '';
+  populateSectionDatalist(catKey);
   if (idx !== null && catKey) {
     const item = state.items[catKey][idx];
     state.editingItemId = item._id;
-    itemName.value  = item.name;
-    itemPrice.value = item.price || '';
-    itemDesc.value  = item.desc  || '';
+    itemName.value    = item.name;
+    itemPrice.value   = item.price || '';
+    itemDesc.value    = item.desc  || '';
+    itemSection.value = item.section || '';
+    (item.variants || []).forEach(v => addVariantRow(v.label, v.price));
     imgPreview.innerHTML = item.image
       ? `<img src="${item.image}" alt="preview">`
       : '<i class="fa fa-image"></i><span>Click to upload image</span>';
   } else {
-    itemName.value = itemPrice.value = itemDesc.value = '';
+    itemName.value = itemPrice.value = itemDesc.value = itemSection.value = '';
     resetImgPreview();
   }
   openModal('itemModal');
@@ -503,9 +560,11 @@ itemImageFile.addEventListener('change', (e) => {
 });
 
 saveItemBtn.addEventListener('click', async () => {
-  const name  = itemName.value.trim();
-  const price = parseFloat(itemPrice.value) || 0;
-  const desc  = itemDesc.value.trim();
+  const name    = itemName.value.trim();
+  const desc    = itemDesc.value.trim();
+  const section = itemSection.value.trim();
+  const variants = getVariantsFromRows();
+  const price   = variants.length > 0 ? 0 : (parseFloat(itemPrice.value) || 0);
   if (!name) { alert('Item ka naam daalo.'); return; }
 
   const catKey = state.activeCatKey;
@@ -521,11 +580,11 @@ saveItemBtn.addEventListener('click', async () => {
     }
 
     if (state.editingItemId) {
-      const res = await api('PUT', `/api/products/${state.editingItemId}`, { name, price, desc, image });
+      const res = await api('PUT', `/api/products/${state.editingItemId}`, { name, price, desc, section, variants, image });
       const idx = state.items[catKey].findIndex(it => it._id === state.editingItemId);
       if (idx !== -1) state.items[catKey][idx] = res;
     } else {
-      const res = await api('POST', '/api/products', { name, price, desc, image, category: catKey });
+      const res = await api('POST', '/api/products', { name, price, desc, section, variants, image, category: catKey });
       if (!state.items[catKey]) state.items[catKey] = [];
       state.items[catKey].push(res);
     }

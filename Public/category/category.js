@@ -1,13 +1,17 @@
-// Fetches best sellers from /api/products?category=best-sellers and renders
-// them into #gridLoading's parent (.item-grid), then wires the same
-// add-to-cart interaction as before:
-// - Variant items (sizes / Half-Full): button stays disabled until picked.
-// - Single-price items: button is enabled immediately.
+// Generic category page: reads the category key from the URL
+// (/category/:catKey), fetches the category's display name and its
+// products, and renders them — grouped under section headings where a
+// product has one, or in one flat grid where it doesn't. This one file
+// replaces what used to be a separate hardcoded page per category.
 // 🔶 Cart storage lives in cart.js (BrgrzCart) — this page never touches
 // localStorage directly, it only calls BrgrzCart.addToCart().
 
 const navCartCount = document.getElementById('cartCount');
-const grid = document.querySelector('.item-grid');
+const pageTitle = document.getElementById('pageTitle');
+const pageSub = document.getElementById('pageSub');
+const categoryContent = document.getElementById('categoryContent');
+
+const catKey = decodeURIComponent(location.pathname.replace(/^\/category\//, '').replace(/\/$/, ''));
 
 function esc(str) {
   return String(str).replace(/[&<>"']/g, c => ({
@@ -53,8 +57,8 @@ function flashAdded(addBtn) {
   }, 900);
 }
 
-async function addItemToCart({ name, size = '', price, image = '' }) {
-  await BrgrzCart.addToCart({ name, size, price, image, category: 'Best Seller' });
+async function addItemToCart({ name, size = '', price, image = '' }, categoryLabel) {
+  await BrgrzCart.addToCart({ name, size, price, image, category: categoryLabel });
 
   const count = await BrgrzCart.getCartCount();
   const total = await BrgrzCart.getCartTotal();
@@ -69,7 +73,7 @@ async function addItemToCart({ name, size = '', price, image = '' }) {
   }
 }
 
-function wireCard(card) {
+function wireCard(card, categoryLabel) {
   const variantBtns = card.querySelectorAll('.variant-btn');
   const addBtn = card.querySelector('.add-cart-btn');
   let selectedBtn = null;
@@ -91,7 +95,7 @@ function wireCard(card) {
         size: selectedBtn.dataset.variant,
         price: parseInt(selectedBtn.dataset.price, 10),
         image: card.querySelector('.item-img').getAttribute('src')
-      });
+      }, categoryLabel);
       flashAdded(addBtn);
     });
   } else {
@@ -100,7 +104,7 @@ function wireCard(card) {
         name: card.querySelector('.item-name').textContent.trim(),
         price: parseInt(addBtn.dataset.price, 10),
         image: card.querySelector('.item-img').getAttribute('src')
-      });
+      }, categoryLabel);
       flashAdded(addBtn);
     });
   }
@@ -117,32 +121,81 @@ function wireCard(card) {
   checkImg();
 }
 
-async function loadBestSellers() {
+function groupBySection(products) {
+  const flat = [];
+  const sections = [];
+  const sectionIndex = new Map();
+
+  for (const product of products) {
+    const section = (product.section || '').trim();
+    if (!section) {
+      flat.push(product);
+      continue;
+    }
+    if (!sectionIndex.has(section)) {
+      sectionIndex.set(section, sections.length);
+      sections.push({ name: section, items: [] });
+    }
+    sections[sectionIndex.get(section)].items.push(product);
+  }
+
+  return { flat, sections };
+}
+
+async function loadCategory() {
   try {
-    const res = await fetch('/api/products?category=best-sellers');
-    const products = await res.json();
+    const [catRes, productsRes] = await Promise.all([
+      fetch('/api/categories'),
+      fetch(`/api/products?category=${encodeURIComponent(catKey)}`),
+    ]);
+    const categories = await catRes.json();
+    const products = await productsRes.json();
+
+    const category = categories.find(c => c.catKey === catKey);
+    const displayName = category ? category.name : catKey;
+    pageTitle.textContent = displayName;
+    pageSub.textContent = `Explore our ${displayName.toLowerCase()} — pick your favorite below.`;
+    document.title = `The Brgrz — ${displayName}`;
 
     if (products.length === 0) {
-      grid.innerHTML = '<p class="grid-empty">No best sellers available right now.</p>';
+      categoryContent.innerHTML = `
+        <div class="item-grid-wrap">
+          <div class="item-grid">
+            <p class="grid-empty">No items available in this category yet.</p>
+          </div>
+        </div>`;
       return;
     }
 
-    grid.innerHTML = products.map(cardHtml).join('');
-    grid.querySelectorAll('.item-card').forEach(wireCard);
+    const { flat, sections } = groupBySection(products);
+    let html = '';
+
+    if (flat.length > 0) {
+      html += `
+        <div class="item-grid-wrap">
+          <div class="item-grid">${flat.map(cardHtml).join('')}</div>
+        </div>`;
+    }
+
+    sections.forEach(sec => {
+      html += `
+        <section class="category-block">
+          <h3 class="category-title">${esc(sec.name)}</h3>
+          <div class="item-grid">${sec.items.map(cardHtml).join('')}</div>
+        </section>`;
+    });
+
+    categoryContent.innerHTML = html;
+    categoryContent.querySelectorAll('.item-card').forEach(card => wireCard(card, displayName));
   } catch (err) {
-    console.error('Failed to load best sellers:', err);
-    grid.innerHTML = '<p class="grid-empty">Could not load the menu. Please refresh.</p>';
+    console.error('Failed to load category:', err);
+    categoryContent.innerHTML = `
+      <div class="item-grid-wrap">
+        <div class="item-grid">
+          <p class="grid-empty">Could not load the menu. Please refresh.</p>
+        </div>
+      </div>`;
   }
 }
 
-loadBestSellers();
-
-// Mobile nav toggle (burger menu)
-const burgerToggleBtn = document.getElementById('burgerToggle');
-const navLinksEl = document.getElementById('navLinks');
-if (burgerToggleBtn && navLinksEl) {
-  burgerToggleBtn.addEventListener('click', () => {
-    const isOpen = navLinksEl.classList.toggle('open');
-    burgerToggleBtn.setAttribute('aria-expanded', isOpen);
-  });
-}
+loadCategory();

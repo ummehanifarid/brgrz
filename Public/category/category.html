@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Brgrz — Pizza Menu</title>
+<title>The Brgrz — Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="pizzas.css">
+<link rel="stylesheet" href="/category/category.css">
 </head>
 <body>
 
@@ -18,8 +18,8 @@
             <div class="container nav-inner">
 
                 <!-- Logo -->
-                <a  href="../home page/index.html" class="logo">
-                    <img src="thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
+                <a  href="/home page/index.html" class="logo">
+                    <img src="/category/thebrgrz.png" alt="The BRGRZ Logo" class="logo-img">
                     <div class="logo-text-stack">
                         <span class="logo-script">The</span>
                         <span class="logo-main">BRGRZ</span>
@@ -27,21 +27,13 @@
                     </div>
                 </a>
 
-                <!-- Navigation -->
-                <nav class="nav-links" id="navLinks">
-                    <a href="../bestseller/bestseller.html">Best Sellers</a>
-                    <a href="../menu/menu.html">Menu</a>
-                    <a href="../deals/deals.html">Deals</a>
-                    <a href="../pizzas/pizzas.html">Pizzas</a>
-                    <a href="../burgers/burgers.html">Burgers</a>
-                    <a href="../beverages/beverages.html">Beverages</a>
-                    <a href="../dips/dips.html">Dips & Sauces</a>
-                </nav>
+                <!-- Navigation (rendered by /shared/nav.js) -->
+                <nav class="nav-links" id="navLinks"></nav>
 
                 <!-- Right Side Actions -->
                 <div class="nav-actions">
 
-                    <a href="../cart/cart.html" aria-label="Shopping Cart">
+                    <a href="/cart/cart.html" aria-label="Shopping Cart">
                         <button class="cart-btn" id="cartBtn" type="button">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                                 <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"></path>
@@ -63,17 +55,20 @@
         </header>
 
 
-  <!-- ===== Menu Title ===== -->
+  <!-- ===== Page Title ===== -->
   <section class="menu-title-block">
     <span class="menu-kicker">Fresh &amp; Tasty</span>
-    <h2 class="menu-title">Premium Pizza Menu</h2>
-    <p class="menu-sub">Stone-baked, loaded fresh, sliced hot. Pick your size below.</p>
+    <h2 class="menu-title" id="pageTitle">Menu</h2>
+    <p class="menu-sub" id="pageSub">Loading...</p>
   </section>
 
-  <!-- ===== Pizza Grid ===== -->
-  <main class="pizza-grid" id="pizza-grid">
-
-    <div class="grid-loading" id="gridLoading">Loading menu...</div>
+  <!-- ===== Category Content (rendered by category.js) ===== -->
+  <main id="categoryContent">
+    <div class="item-grid-wrap">
+      <div class="item-grid">
+        <div class="grid-loading" id="gridLoading">Loading menu...</div>
+      </div>
+    </div>
   </main>
 
   <!-- ===== Footer ===== -->
@@ -89,7 +84,8 @@
     <span id="cart-total">Rs 0</span>
   </div>
 
-<script src="../cart/cart.js"></script>
-<script src="pizzas.js"></script>
+<script src="/cart/cart.js"></script>
+<script src="/shared/nav.js"></script>
+<script src="/category/category.js"></script>
 </body>
 </html>

@@ -1,20 +1,4 @@
-// Mobile nav toggle
-        const burgerToggle = document.getElementById('burgerToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        burgerToggle?.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            burgerToggle.classList.toggle('active', isOpen);
-            burgerToggle.setAttribute('aria-expanded', isOpen);
-        });
-
-        navLinks?.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                burgerToggle?.classList.remove('active');
-                burgerToggle?.setAttribute('aria-expanded', 'false');
-            });
-        });
+// Mobile nav toggle is handled by /shared/nav.js (loaded before this file).
 
         // Nav shrink / solidify on scroll
         const nav = document.getElementById('nav');

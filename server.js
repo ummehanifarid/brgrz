@@ -8,7 +8,11 @@ const app = express();
 
 // ─── MIDDLEWARE ───────────────────────────────────────────
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+// MongoDB has a hard 16MB per-document limit, and base64-encoded images
+// (used for product photos) inflate ~33% over the raw file size — keep
+// this comfortably under that ceiling so Express rejects oversized
+// uploads early with a clear error, instead of a confusing Mongo failure.
+app.use(express.json({ limit: '15mb' }));
 
 // ─── STATIC FILES ─────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'Public')));
@@ -16,10 +20,7 @@ app.use('/admin', express.static(path.join(__dirname, 'Admin-control')));
 
 // ─── MONGODB CONNECTION ────────────────────────────────────
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('MongoDB Connected!');
-    seedCategories();
-  })
+  .then(() => console.log('MongoDB Connected!'))
   .catch(err => console.log('MongoDB Error:', err.message));
 
 // ─── ROUTES ───────────────────────────────────────────────
@@ -37,23 +38,25 @@ app.get('/admin', (req, res) => {
   res.redirect('/admin/admin.html');
 });
 
-// ─── SEED DEFAULT CATEGORIES ──────────────────────────────
-async function seedCategories() {
-  const Category = require('./models/Category');
-  const count = await Category.countDocuments();
-  if (count === 0) {
-    await Category.insertMany([
-      { name: 'Best Sellers',  icon: '⭐', catKey: 'best-sellers' },
-      { name: 'Burgers',       icon: '🍔', catKey: 'burgers'      },
-      { name: 'Pizzas',        icon: '🍕', catKey: 'pizzas'       },
-      { name: 'Deals',         icon: '🔥', catKey: 'deals'        },
-      { name: 'Beverages',     icon: '🥤', catKey: 'beverages'    },
-      { name: 'Dips & Sauces', icon: '🫙', catKey: 'dips'         },
-      { name: 'Fries Corner',  icon: '🍟', catKey: 'fries'        },
-      { name: 'Wraps',         icon: '🌯', catKey: 'wraps'        },
-    ]);
-    console.log('✅ Default categories seeded');
-  }
+// One generic route serves every category — adding a new category in admin
+// needs zero code changes, since the page reads the catKey from the URL.
+app.get('/category/:catKey', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Public', 'category', 'category.html'));
+});
+
+// ─── LEGACY URL REDIRECTS ──────────────────────────────────
+// Old per-category static pages have been replaced by /category/:catKey.
+const legacyCategoryRedirects = {
+  '/bestseller/bestseller.html': 'best-sellers',
+  '/burgers/burgers.html':       'burgers',
+  '/pizzas/pizzas.html':         'pizzas',
+  '/beverages/beverages.html':   'beverages',
+  '/dips/dips.html':             'dips',
+  '/deals/deals.html':           'deals',
+  '/menu/menu.html':             'menu',
+};
+for (const [oldPath, catKey] of Object.entries(legacyCategoryRedirects)) {
+  app.get(oldPath, (req, res) => res.redirect(`/category/${catKey}`));
 }
 
 // ─── START ────────────────────────────────────────────────

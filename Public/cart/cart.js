@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="icon">🛒</div>
           <h3>Your cart is empty</h3>
           <p>Looks like you haven't added anything yet.</p>
-          <a href="../menu/menu.html">Browse Menu</a>
+          <a href="/category/menu">Browse Menu</a>
         </div>`;
     } else {
       itemsContainer.innerHTML = `<div class="cart-items">${items.map(cartItemHtml).join('')}</div>`;

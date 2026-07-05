@@ -250,12 +250,22 @@
           <input type="text" id="itemName" placeholder="e.g. Zinger Burger">
         </div>
         <div class="field-group">
-          <label>Price (Rs)</label>
+          <label>Price (Rs) — leave blank if using size variants below</label>
           <input type="number" id="itemPrice" placeholder="e.g. 450">
+        </div>
+        <div class="field-group">
+          <label>Size Variants (optional)</label>
+          <div id="variantRows"></div>
+          <button type="button" class="btn-ghost small" id="addVariantRowBtn">+ Add Size</button>
         </div>
         <div class="field-group">
           <label>Description (optional)</label>
           <input type="text" id="itemDesc" placeholder="e.g. Crispy chicken with special sauce">
+        </div>
+        <div class="field-group">
+          <label>Section / Heading (optional)</label>
+          <input type="text" id="itemSection" list="itemSectionList" placeholder="e.g. Fries Corner">
+          <datalist id="itemSectionList"></datalist>
         </div>
         <div class="field-group">
           <label>Item Image</label>
