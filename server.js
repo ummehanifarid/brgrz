@@ -60,8 +60,15 @@ for (const [oldPath, catKey] of Object.entries(legacyCategoryRedirects)) {
 }
 
 // ─── START ────────────────────────────────────────────────
+// Vercel imports this file to get the Express app as a request handler —
+// it must not call app.listen() there, since Vercel runs it as a
+// serverless function rather than a long-lived server.
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`🍔 Admin panel: http://localhost:${PORT}/admin`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🍔 Admin panel: http://localhost:${PORT}/admin`);
+  });
+}
+
+module.exports = app;
