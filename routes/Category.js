@@ -6,16 +6,20 @@ const Product  = require('../models/Product');
 // Saari categories lao
 router.get('/', async (req, res) => {
   try {
-    const categories = await Category.find().sort({ createdAt: 1 });
+    const categories = await Category.find().sort({ order: 1, createdAt: 1 });
     res.json(categories);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Nai category banao
+// Nai category banao (naye categories hamesha list k end mein aati hain)
 router.post('/', async (req, res) => {
   try {
+    if (req.body.order === undefined) {
+      const last = await Category.findOne().sort({ order: -1 });
+      req.body.order = last ? last.order + 1 : 0;
+    }
     const category = await Category.create(req.body);
     res.status(201).json(category);
   } catch (err) {

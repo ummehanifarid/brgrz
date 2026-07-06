@@ -166,16 +166,6 @@ button { font-family: var(--font-body); }
 }
 .cart-count.bump { transform: scale(1.4); }
 
-.burger-toggle {
-  display: none;
-  flex-direction: column; justify-content: center; gap: 5px;
-  width: 42px; height: 42px;
-  border: 1px solid rgba(232,176,75,0.35);
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
-}
-.burger-toggle span { display: block; height: 2px; background: var(--gold-soft); border-radius: 2px; }
-
 /* =========================================================
    PAGE HEADER + STEP TRACKER
    ========================================================= */
@@ -736,8 +726,33 @@ button { font-family: var(--font-body); }
 }
 
 @media (max-width: 700px) {
-  .nav-links { display: none; }
-  .burger-toggle { display: flex; }
+  .nav-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 14px 0;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 22px;
+    margin-top: 12px;
+    padding: 10px 4px 8px;
+    border-top: 1px solid rgba(232,176,75,0.15);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a { flex-shrink: 0; }
+
   .form-row.two-col { grid-template-columns: 1fr; }
 }
 

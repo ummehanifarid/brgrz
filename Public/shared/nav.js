@@ -1,8 +1,9 @@
 // Shared across every page: renders the nav links from /api/categories
 // (so a category created in admin shows up here automatically, no code
-// change needed) and wires the mobile burger-menu toggle.
-// Expects each page to have an empty <nav id="navLinks"> and a
-// <button id="burgerToggle"> in its header markup.
+// change needed). On narrow screens, the nav becomes a horizontally
+// scrollable strip below the header row (see the .nav-links media
+// queries in each page's CSS) — no hamburger menu needed.
+// Expects each page to have an empty <nav id="navLinks"> in its header.
 
 async function renderNav() {
   const navLinks = document.getElementById('navLinks');
@@ -27,25 +28,4 @@ function esc(str) {
   }[c]));
 }
 
-function wireBurgerToggle() {
-  const burgerToggle = document.getElementById('burgerToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (!burgerToggle || !navLinks) return;
-
-  burgerToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    burgerToggle.classList.toggle('active', isOpen);
-    burgerToggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      navLinks.classList.remove('open');
-      burgerToggle.classList.remove('active');
-      burgerToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
-
 renderNav();
-wireBurgerToggle();
