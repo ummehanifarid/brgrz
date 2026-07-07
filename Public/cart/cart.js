@@ -1,9 +1,6 @@
 /* =====================================================================
    THE BRGRZ — CART DATA LAYER  (cart.js)
    ---------------------------------------------------------------------
-   Ab yeh localStorage ki jagah MongoDB API use karta hai.
-   Baaki saari files (pizzas.js, burgers.js, etc.) bilkul nahi badle —
-   woh BrgrzCart.addToCart() etc. exactly pehle ki tarah call karte hain.
    ===================================================================== */
 
 const BrgrzCart = (() => {
@@ -334,21 +331,44 @@ document.addEventListener('DOMContentLoaded', () => {
     return isValid;
   }
 
+  const fieldChecks = {
+    custName:    () => custName.value.trim().length > 0,
+    custPhone:   () => /^0\d{9,10}$/.test(custPhone.value.trim()),
+    custArea:    () => custArea.value.trim().length > 0,
+    custAddress: () => custAddress.value.trim().length > 0,
+  };
+
   function validateForm() {
-    const nameValid    = validateField(custName, custName.value.trim().length > 0);
-    const phoneValid   = validateField(custPhone, /^0\d{9,10}$/.test(custPhone.value.trim()));
-    const areaValid    = validateField(custArea, custArea.value.trim().length > 0);
-    const addressValid = validateField(custAddress, custAddress.value.trim().length > 0);
+    const nameValid    = validateField(custName, fieldChecks.custName());
+    const phoneValid   = validateField(custPhone, fieldChecks.custPhone());
+    const areaValid    = validateField(custArea, fieldChecks.custArea());
+    const addressValid = validateField(custAddress, fieldChecks.custAddress());
 
     let paymentValid = !!paymentMethod;
     if (paymentMethod === 'Online') paymentValid = paidConfirm.checked;
     paymentError.style.display = paymentValid ? 'none' : 'block';
 
-    return nameValid && phoneValid && areaValid && addressValid && paymentValid;
+    const allValid = nameValid && phoneValid && areaValid && addressValid && paymentValid;
+
+    if (!allValid) {
+      // Make sure the customer actually sees why the order didn't go through —
+      // scroll to and briefly flash the first problem field instead of failing silently.
+      const firstInvalid = document.querySelector('.form-row.invalid, #paymentError[style*="block"]');
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid.classList.add('shake');
+        setTimeout(() => firstInvalid.classList.remove('shake'), 500);
+        const focusable = firstInvalid.querySelector('input, select, textarea');
+        if (focusable) focusable.focus();
+      }
+    }
+
+    return allValid;
   }
 
   [custName, custPhone, custArea, custAddress].forEach(input => {
-    input.addEventListener('input', () => validateField(input, input.value.trim().length > 0));
+    const fieldName = input.id;
+    input.addEventListener('input', () => validateField(input, fieldChecks[fieldName]()));
   });
 
   function selectPayment(method) {
@@ -394,8 +414,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 900);
     } catch (err) {
       console.error('Place order error:', err);
-      paymentError.textContent = 'Something went wrong placing your order. Please try again.';
+      paymentError.textContent = 'Something went wrong placing your order. Please check your internet connection and try again.';
       paymentError.style.display = 'block';
+      paymentError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      paymentError.classList.add('shake');
+      setTimeout(() => paymentError.classList.remove('shake'), 500);
       placeOrderBtn.disabled = false;
       placeOrderBtn.textContent = 'Place Order';
     }

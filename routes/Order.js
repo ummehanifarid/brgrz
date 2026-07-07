@@ -3,7 +3,7 @@ const router  = express.Router();
 const Order   = require('../models/Order');
 const Stats   = require('../models/Stats');
 
-// Saare orders lao
+// bring orders
 router.get('/', async (req, res) => {
   try {
     const filter = req.query.status && req.query.status !== 'all'
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Naya order place karo (public website se aata hai)
+// Place a new order
 router.post('/', async (req, res) => {
   try {
     const order = await Order.create(req.body);
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Order update karo (admin se status change)
+// Order update
 router.put('/:id', async (req, res) => {
   try {
     const old   = await Order.findById(req.params.id);
@@ -44,7 +44,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Order delete karo
+// Order delete
 router.delete('/:id', async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);

@@ -1,10 +1,4 @@
-// Generic category page: reads the category key from the URL
-// (/category/:catKey), fetches the category's display name and its
-// products, and renders them — grouped under section headings where a
-// product has one, or in one flat grid where it doesn't. This one file
-// replaces what used to be a separate hardcoded page per category.
-// 🔶 Cart storage lives in cart.js (BrgrzCart) — this page never touches
-// localStorage directly, it only calls BrgrzCart.addToCart().
+
 
 const navCartCount = document.getElementById('cartCount');
 const pageTitle = document.getElementById('pageTitle');

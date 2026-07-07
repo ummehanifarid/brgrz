@@ -3,7 +3,7 @@ const router   = express.Router();
 const Category = require('../models/Category');
 const Product  = require('../models/Product');
 
-// Saari categories lao
+// fetch all categories
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.find().sort({ order: 1, createdAt: 1 });
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Nai category banao (naye categories hamesha list k end mein aati hain)
+// New category
 router.post('/', async (req, res) => {
   try {
     if (req.body.order === undefined) {
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Category update karo
+// Category update
 router.put('/:id', async (req, res) => {
   try {
     const category = await Category.findByIdAndUpdate(
@@ -39,7 +39,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Category delete karo (saath mein uske products bhi)
+// Category delete
 router.delete('/:id', async (req, res) => {
   try {
     const cat = await Category.findById(req.params.id);

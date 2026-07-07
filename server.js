@@ -1,17 +1,21 @@
 require('dotenv').config();
+const dns      = require('dns');
 const express  = require('express');
 const mongoose = require('mongoose');
 const cors     = require('cors');
 const path     = require('path');
+
+// Some networks/routers fail Node's direct SRV DNS query (used to resolve
+// mongodb+srv:// URIs) even though normal DNS lookups work fine on the same
+// network. Pointing Node at public resolvers avoids that failure mode.
+dns.setServers(['8.8.8.8', '1.1.1.1', ...dns.getServers()]);
 
 const app = express();
 
 // ─── MIDDLEWARE ───────────────────────────────────────────
 app.use(cors());
 // MongoDB has a hard 16MB per-document limit, and base64-encoded images
-// (used for product photos) inflate ~33% over the raw file size — keep
-// this comfortably under that ceiling so Express rejects oversized
-// uploads early with a clear error, instead of a confusing Mongo failure.
+
 app.use(express.json({ limit: '15mb' }));
 
 // ─── STATIC FILES ─────────────────────────────────────────
