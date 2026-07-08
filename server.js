@@ -5,10 +5,14 @@ const mongoose = require('mongoose');
 const cors     = require('cors');
 const path     = require('path');
 
-// Some networks/routers fail Node's direct SRV DNS query (used to resolve
-// mongodb+srv:// URIs) even though normal DNS lookups work fine on the same
-// network. Pointing Node at public resolvers avoids that failure mode.
-dns.setServers(['8.8.8.8', '1.1.1.1', ...dns.getServers()]);
+// Some local networks/routers fail Node's direct SRV DNS query (used to
+// resolve mongodb+srv:// URIs) even though normal DNS lookups work fine on
+// the same network. Pointing Node at public resolvers avoids that failure
+// mode — but only for local dev, since Vercel's sandboxed functions block
+// outbound queries to arbitrary external DNS servers, breaking this there.
+if (!process.env.VERCEL) {
+  dns.setServers(['8.8.8.8', '1.1.1.1', ...dns.getServers()]);
+}
 
 const app = express();
 
